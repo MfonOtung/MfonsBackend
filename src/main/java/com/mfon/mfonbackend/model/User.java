@@ -8,6 +8,8 @@ public class User {
     }
     public String name;
 
+    public  String email;
+
     public String password;
 
     public String username;
@@ -65,6 +67,14 @@ public class User {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 }
 
