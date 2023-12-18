@@ -2,14 +2,18 @@ package com.mfon.mfonbackend.controller;
 
 import com.mfon.mfonbackend.dto.RegistrationBody;
 import com.mfon.mfonbackend.model.User;
+import com.mfon.mfonbackend.model.dao.UserDAO;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.Date;
-import java.util.List;
 
 @RestController
 @RequestMapping("/user")
 public class UserController {
+
+    UserDAO userDAO;
+
+    public UserController(UserDAO udao){
+        userDAO = udao;
+    }
 
     @GetMapping("/get-one-user")
     public String getUser(){
@@ -28,10 +32,14 @@ public class UserController {
     public User createUser(@RequestBody RegistrationBody user1){
 
         User customer = new User();
-        customer.setName(user1.getName());
+        customer.setFirstname(user1.getFirstname());
+        customer.setLastname(user1.getLastname());
         customer.setUsername(user1.getUsername());
         customer.setPassword(user1.getPassword());
+        customer.setAddress(user1.getAddress());
+        customer.setEmail(user1.getEmail());
 
+        userDAO.save(customer);
         return  customer;
     }
 

@@ -4,20 +4,33 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 
 public class RegistrationBody {
-    public String name;
+    private String firstname;
 
-    public  String email;
+    private String lastname;
 
-    public String username;
 
-    public String password;
+    private   String email;
 
-    public String getName() {
-        return name;
+    private String username;
+
+    private String password;
+
+    private String address;
+
+    public String getAddress() {
+        return address;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
     }
 
     public String getEmail() {
@@ -44,5 +57,13 @@ public class RegistrationBody {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
     }
 }
