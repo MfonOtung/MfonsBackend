@@ -8,7 +8,6 @@ public class RegistrationBody {
 
     private String lastname;
 
-
     private   String email;
 
     private String username;
@@ -16,6 +15,8 @@ public class RegistrationBody {
     private String password;
 
     private String address;
+
+    private Long id;
 
     public String getAddress() {
         return address;
@@ -65,5 +66,14 @@ public class RegistrationBody {
 
     public void setLastname(String lastname) {
         this.lastname = lastname;
+    }
+
+    public Long getId() {
+
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }
