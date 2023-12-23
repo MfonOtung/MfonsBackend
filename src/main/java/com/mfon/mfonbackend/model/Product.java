@@ -12,6 +12,7 @@ public class Product {
     @Column(name = "id", nullable = false)
     private Long id;
 
+
     @Column(name = "name", nullable = false)
     private String name;
 
@@ -21,13 +22,6 @@ public class Product {
     @Column(name = "price")
     private double price;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public String getName() {
         return name;

@@ -3,11 +3,11 @@ package com.mfon.mfonbackend.controller;
 import com.mfon.mfonbackend.dto.RegistrationBody;
 import com.mfon.mfonbackend.exceptions.UserAlreadyExistsException;
 import com.mfon.mfonbackend.model.User;
-import com.mfon.mfonbackend.model.dao.UserDAO;
 import com.mfon.mfonbackend.services.UserService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/user")
@@ -19,10 +19,12 @@ public class UserController {
         userService = uService;
     }
 
-    @GetMapping("/get-one-user")
-    public String getUser(){
+    // CRUD operations
+    // Create (POST) - Read (GET) - UPDATE (PUT) - DELETE ()
+    @GetMapping("/get-one-user/{userId}")
+    public Optional<User> getUser(@PathVariable Long userId){
 
-        return "this is a test";
+        return userService.getOneUser(userId);
     }
 
     // TODO: create a method called getUsers and shall return a string array
@@ -31,12 +33,11 @@ public class UserController {
         return userService.getAllUsers();
     }
 
-    //TODO: create a method called createUSer and shall post a string
     @PostMapping("/create-a-user")
-    public User createUser(@RequestBody RegistrationBody userComingFromFrontEnd){
+    public User createUser(@RequestBody RegistrationBody comingUser){
 
         try {
-            return  userService.registerUser(userComingFromFrontEnd);
+            return userService.registerUser(comingUser);
         } catch (UserAlreadyExistsException e) {
             throw new RuntimeException(e);
         }

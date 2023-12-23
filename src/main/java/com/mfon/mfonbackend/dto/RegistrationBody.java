@@ -1,22 +1,40 @@
 package com.mfon.mfonbackend.dto;
 
+import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
 
 public class RegistrationBody {
+
+    @NotBlank
+    @NotNull
     private String firstname;
 
+    @NotBlank
+    @NotNull
     private String lastname;
 
-    private   String email;
+    @NotBlank
+    @NotNull
+    @Email
+    private String email;
 
+    @NotBlank
+    @NotNull
+    @Size(min = 4, max = 265)
     private String username;
 
+    @NotBlank
+    @NotNull
+    @Size(min = 6, max = 32)
     private String password;
 
+    @NotBlank
+    @NotNull
     private String address;
 
-    private Long id;
+
 
     public String getAddress() {
         return address;
@@ -42,8 +60,7 @@ public class RegistrationBody {
         this.email = email;
     }
 
-    @NotNull
-    @NotBlank
+
     public String getUsername() {
         return username;
     }
@@ -68,12 +85,5 @@ public class RegistrationBody {
         this.lastname = lastname;
     }
 
-    public Long getId() {
 
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }

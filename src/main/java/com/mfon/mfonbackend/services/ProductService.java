@@ -7,6 +7,7 @@ import com.mfon.mfonbackend.model.dao.ProductDAO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ProductService {
@@ -20,14 +21,18 @@ public class ProductService {
         return productDAO.findAll();
     }
 
+    public Optional<Product> getOneProduct(Long id){
+        return productDAO.findById(id);
+    }
+
     public Product addProduct(ProductDetails newProduct){
-        Product order = new Product();
-        order.setName(newProduct.getName());
-        order.setId(newProduct.getId());
-        order.setPrice(newProduct.getPrice());
-        order.setDescription(newProduct.getDescription());
+
+        Product productToAdd = new Product();
+        productToAdd.setName(newProduct.getName());
+        productToAdd.setPrice(newProduct.getPrice());
+        productToAdd.setDescription(newProduct.getDescription());
 
 
-        return productDAO.save(order);
+        return productDAO.save(productToAdd);
     }
 }

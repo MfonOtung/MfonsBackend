@@ -7,6 +7,7 @@ import com.mfon.mfonbackend.model.dao.UserDAO;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -31,7 +32,6 @@ public class UserService {
         customer.setUsername(newUser.getUsername());
         customer.setAddress(newUser.getAddress());
         customer.setEmail(newUser.getEmail());
-        customer.setId(newUser.getId());
 
         // TODO: encrypt the password before saving it
         customer.setPassword(newUser.getPassword());
@@ -43,6 +43,11 @@ public class UserService {
 
     public List<User> getAllUsers(){
         return userDAO.findAll();
+    }
+
+
+    public Optional<User> getOneUser(Long id){
+        return userDAO.findById(id);
     }
 
 }

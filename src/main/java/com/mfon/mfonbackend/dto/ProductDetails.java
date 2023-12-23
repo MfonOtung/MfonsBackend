@@ -3,8 +3,6 @@ package com.mfon.mfonbackend.dto;
 public class ProductDetails {
     public String name;
 
-    public Long id;
-
     public double price;
 
     public String description;
@@ -17,13 +15,6 @@ public class ProductDetails {
         this.name = name;
     }
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     public double getPrice() {
         return price;
