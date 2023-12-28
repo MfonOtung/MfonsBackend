@@ -1,12 +1,9 @@
 package com.mfon.mfonbackend.model.dao;
 
-import com.mfon.mfonbackend.model.Product;
-import com.mfon.mfonbackend.model.User;
+import com.mfon.mfonbackend.model.ProductModel;
 import org.springframework.data.repository.ListCrudRepository;
 
-import java.util.Optional;
-
-public interface ProductDAO extends ListCrudRepository<Product,Long> {
+public interface ProductDAO extends ListCrudRepository<ProductModel,Long> {
 
 
 }

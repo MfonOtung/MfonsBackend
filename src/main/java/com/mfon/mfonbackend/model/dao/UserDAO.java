@@ -1,13 +1,13 @@
 package com.mfon.mfonbackend.model.dao;
 
-import com.mfon.mfonbackend.model.User;
+import com.mfon.mfonbackend.model.UserModel;
 import org.springframework.data.repository.ListCrudRepository;
 
 import java.util.Optional;
 
-public interface UserDAO extends ListCrudRepository<User,Long> {
+public interface UserDAO extends ListCrudRepository<UserModel,Long> {
 
-    Optional<User> findByUsernameIgnoreCase(String username);
-    Optional<User> findByEmailIgnoreCase(String email);
+    Optional<UserModel> findByUsernameIgnoreCase(String username);
+    Optional<UserModel> findByEmailIgnoreCase(String email);
 
 }

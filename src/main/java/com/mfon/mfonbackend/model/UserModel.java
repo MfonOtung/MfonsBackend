@@ -1,17 +1,15 @@
 package com.mfon.mfonbackend.model;
 
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
 
 import java.util.Date;
 
 @Entity
 @Table(name = "user")
-public class User {
+public class UserModel {
 
 
-    public User(){
+    public UserModel(){
     }
 
     /** Unique id for the user */
